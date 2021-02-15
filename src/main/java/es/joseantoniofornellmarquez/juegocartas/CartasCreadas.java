@@ -1,12 +1,14 @@
 
 package es.joseantoniofornellmarquez.juegocartas;
 
+import java.util.Random;
+
 
 public class CartasCreadas{
-   
+    Carta [] mazoCentral;
     public String GenerarCartas(){
         
-        Carta [][] mazoCentral = new Carta [9][3];
+        mazoCentral = new Carta [4];
     
         Carta carta1 = new Carta();
         carta1.nombre = "Shot";
@@ -32,10 +34,20 @@ public class CartasCreadas{
         carta4.accion = "La distancia de vision se aumenta en 1";
         carta4.palo = "Picas";
         
-        mazoCentral [0][0] = carta1;
-        mazoCentral [1][0] = carta2;
-        mazoCentral [2][0] = carta3;
-        mazoCentral [3][0] = carta4;
+        mazoCentral [0] = carta1;
+        mazoCentral [1] = carta2;
+        mazoCentral [2] = carta3;
+        mazoCentral [3] = carta4;
         return null;
+    }
+    
+    public void cogerCarta(){
+        //mazoCentral[1];
+        System.out.println(mazoCentral[1]);
+    }
+    public int getNumAleatorio(int min, int max){
+        Random random = new Random();
+        int num = random.nextInt(max-min+1) + min;
+        return num;
     }
 }
