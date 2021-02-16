@@ -11,11 +11,14 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 Pane tablero;
+
     @Override
     public void start(Stage stage) {
-        var pantalla = new Scene(tablero, 640, 480);
+        tablero = new Pane();
+        var pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
+        CartasCreadas mazo = new CartasCreadas();
     }
 
     public static void main(String[] args) {
