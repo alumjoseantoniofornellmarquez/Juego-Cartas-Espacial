@@ -18,6 +18,7 @@ Pane tablero;
         var pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
+        //LLamada al la creación del mazo central
         CartasCreadas mazo = new CartasCreadas();
     }
 
