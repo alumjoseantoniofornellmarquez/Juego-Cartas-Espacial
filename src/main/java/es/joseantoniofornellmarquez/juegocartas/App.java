@@ -20,6 +20,13 @@ Pane tablero;
         stage.show();
         //LLamada al la creación del mazo central
         CartasCreadas mazo = new CartasCreadas();
+        Carta carta;
+        carta = mazo.cogerCarta();
+        //Mostrar información de la carta cogida
+        System.out.println(carta.nombre + "\n" +
+        carta.accion + "\n" +
+        carta.numero + " " +
+        carta.palo);
     }
 
     public static void main(String[] args) {
