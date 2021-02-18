@@ -27,6 +27,10 @@ Pane tablero;
         carta.accion + "\n" +
         carta.numero + " " +
         carta.palo);
+        CartasCreadas mazo2 = new CartasCreadas();
+        Personajes perso;
+        perso = mazo2.cogerCartaPersonajes();
+        System.out.println(perso.nombre + "\n" + perso.rol);
     }
 
     public static void main(String[] args) {
