@@ -4,14 +4,14 @@ package es.joseantoniofornellmarquez.juegocartas;
 import java.util.Random;
 
 
-public class CartasCreadas{
+public class Mazos{
     //Array del mazo central
-    Carta [] mazoCentral = new Carta [60];
+    Carta [] mazoCentral = new Carta [4];
     int cartaAleatoria;
     //Array del mazo de personajes
     Personajes [] mazoPersonajes = new Personajes[7];
     //Metodo para crear cartas
-    public CartasCreadas(){
+    public Mazos(){
         
         Carta carta;
         this.mazoCentral [0] = new Carta("Shot",4, "Pierde una vida","Rombos");
@@ -25,16 +25,14 @@ public class CartasCreadas{
         this.mazoPersonajes[3] = new Personajes("Asesino","Ha de matar al capitan");
         this.mazoPersonajes[4] = new Personajes("Asesino","Ha de matar al capitan");
         this.mazoPersonajes[5] = new Personajes("Asesino","Ha de matar al capitan");
-        this.mazoPersonajes[6] = new Personajes("Espia","Ha de que darse solo con el capitán y matarlo");
-
+        this.mazoPersonajes[6] = new Personajes("Espia","Ha de quedarse solo con el capitán y matarlo");
     }
     //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
-    public Carta cogerCarta(){
-        cartaAleatoria = getNumAleatorio(0,3);
-        return mazoCentral [cartaAleatoria];
-    }
-    public Personajes cogerCartaPersonajes(){
-        return mazoPersonajes[7];
+    public void cogerCarta(){
+        for (int i = 0; i < mazoCentral.length; i++){
+            Carta carta = mazoCentral[i];
+            carta.mostrarCarta();
+        }
     }
     //Metodo para barajar las cartas
     Personajes carta1;
@@ -44,6 +42,13 @@ public class CartasCreadas{
         carta2 = mazoPersonajes[1];
         mazoPersonajes[1] = carta1;
         mazoPersonajes[0] = carta2;
+    }
+    public void cogerCartaPersonajes(){
+        for (int i = 0; i < mazoPersonajes.length; i++){
+            Personajes perso = mazoPersonajes[i];
+            perso.mostrarCartaPersonajes();
+            //System.out.println("Carta " + i + perso);
+        }
     }
     //Metodo para generar numeros aleatorios
     public int getNumAleatorio(int min, int max){

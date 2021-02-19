@@ -18,5 +18,7 @@ public class Personajes {
         this.rol = rol;
         
     }
-    
+    public void mostrarCartaPersonajes(){
+        System.out.println(nombre + ", " + rol + "\n "); 
+    }
 }

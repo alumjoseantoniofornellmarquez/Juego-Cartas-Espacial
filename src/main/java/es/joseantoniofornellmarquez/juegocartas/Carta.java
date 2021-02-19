@@ -14,4 +14,10 @@ public class Carta {
         this.accion = accion;
         this.palo = palo;
     }
+    public void mostrarCarta(){
+        System.out.println(nombre + "\n" +
+        accion + "\n" +
+        numero + " " +
+        palo +" \n ");
+    }
 }
