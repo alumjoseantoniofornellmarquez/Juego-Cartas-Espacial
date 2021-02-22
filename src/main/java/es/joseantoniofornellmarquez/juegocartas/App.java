@@ -20,6 +20,8 @@ Pane tablero;
         stage.show();
         Mazos mazo1 = new Mazos();
         Mazos mazo2 = new Mazos();
+        mazo2.barajarMazoPersonaje();
+        mazo1.barajarMazoCentro();
         mazo1.cogerCarta();
         mazo2.cogerCartaPersonajes();
     }
