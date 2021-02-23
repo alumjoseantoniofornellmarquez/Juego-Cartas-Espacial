@@ -2,6 +2,7 @@ package es.joseantoniofornellmarquez.juegocartas;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -10,11 +11,11 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-Pane tablero;
+BorderPane tablero;
 
     @Override
     public void start(Stage stage) {
-        tablero = new Pane();
+        tablero = new BorderPane();
         var pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
@@ -24,6 +25,9 @@ Pane tablero;
         mazo1.barajarMazoCentro();
         mazo1.cogerCarta();
         mazo2.cogerCartaPersonajes();
+        
+        ParteGrafica partegrafica = new ParteGrafica(mazo2);
+        
     }
 
     public static void main(String[] args) {
