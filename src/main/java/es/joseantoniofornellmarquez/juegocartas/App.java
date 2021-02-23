@@ -19,14 +19,14 @@ BorderPane tablero;
         var pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
-        Mazos mazo1 = new Mazos();
-        Mazos mazo2 = new Mazos();
-        mazo2.barajarMazoPersonaje();
-        mazo1.barajarMazoCentro();
-        mazo1.cogerCarta();
-        mazo2.cogerCartaPersonajes();
+        Mazos mazo = new Mazos();
+        mazo.barajarMazoPersonaje();
+        mazo.barajarMazoCentro();
+        mazo.cogerCarta();
+        mazo.cogerCartaPersonajes();
         
-        ParteGrafica partegrafica = new ParteGrafica(mazo2);
+        ParteGrafica partegrafica = new ParteGrafica(mazo);
+        tablero.setCenter(partegrafica);
         
     }
 

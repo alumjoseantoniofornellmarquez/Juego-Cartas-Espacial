@@ -14,10 +14,15 @@ import javafx.scene.layout.GridPane;
  */
 public class ParteGrafica extends GridPane{
     
-    public ParteGrafica(Personajes mazo2){
-        int num = 
-        Label label = new Label();
-        this.add(label, 0, 0);
+    public ParteGrafica(Mazos mazos){
+        Label jugador1 = new Label(mazos.mazoPersonajes[0].nombre + " " + mazos.mazoPersonajes[0].rol + " " );
+        Label jugador2 = new Label(mazos.mazoPersonajes[1].nombre + " " + mazos.mazoPersonajes[1].rol + " ");
+        Label jugador3 = new Label(mazos.mazoPersonajes[2].nombre + " " + mazos.mazoPersonajes[2].rol + " ");
+        Label jugador4 = new Label(mazos.mazoPersonajes[3].nombre + " " + mazos.mazoPersonajes[3].rol + " ");
+        this.add(jugador1, 0, 0);
+        this.add(jugador2, 5, 0);
+        this.add(jugador3, 0, 5);
+        this.add(jugador4, 5, 5);
         
     }
     

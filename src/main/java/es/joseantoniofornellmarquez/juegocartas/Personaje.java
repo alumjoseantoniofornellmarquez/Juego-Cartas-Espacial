@@ -9,16 +9,16 @@ package es.joseantoniofornellmarquez.juegocartas;
  *
  * @author 1DAW09
  */
-public class Personajes {
+public class Personaje {
     String nombre;
     String rol;
-    public Personajes(String nombre, String rol){
+    public Personaje(String nombre, String rol){
         
         this.nombre = nombre;
         this.rol = rol;
         
     }
-    public void mostrarCartaPersonajes(){
+    public void mostrarCartaPersonaje(){
         System.out.println(nombre + ", " + rol + "\n "); 
     }
 }
