@@ -9,7 +9,7 @@ public class Mazos{
     Carta [] mazoCentral = new Carta [4];
     int cartaAleatoria;
     //Variables jugadores
-    int jugadores = 7;
+    int jugadores = 5;
     //Array del mazo de personajes
     Personaje [] mazoPersonajes = new Personaje[jugadores];
     //Metodo para crear cartas
@@ -100,7 +100,7 @@ public class Mazos{
     public void cogerCartaPersonajes(){
         for (int i = 0; i < mazoPersonajes.length; i++){
             Personaje perso = mazoPersonajes[jugadores-1];
-            perso.mostrarCartaPersonaje();
+            //perso.mostrarCartaPersonaje();
             //System.out.println("Carta " + i + perso);
         }
     }

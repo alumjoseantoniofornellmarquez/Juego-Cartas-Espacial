@@ -3,7 +3,6 @@ package es.joseantoniofornellmarquez.juegocartas;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
@@ -25,9 +24,8 @@ BorderPane tablero;
         mazo.cogerCarta();
         mazo.cogerCartaPersonajes();
         
-        ParteGrafica partegrafica = new ParteGrafica(mazo);
-        tablero.setCenter(partegrafica);
-        
+        VistaDelJugador visionJugador = new VistaDelJugador(mazo);
+        tablero.setBottom(visionJugador);
     }
 
     public static void main(String[] args) {
