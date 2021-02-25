@@ -5,15 +5,19 @@ import java.util.Random;
 
 
 public class Mazos{
-    //Array del mazo central
-    Carta [] mazoCentral = new Carta [4];
     int cartaAleatoria;
     //Variables jugadores
-    int jugadores = 5;
-    //Array del mazo de personajes
-    Personaje [] mazoPersonajes = new Personaje[jugadores];
+    int jugadores;
+    //Variable para la cantidad de cartas del mazo central
+    int cartasDelCentro = 4;
+    //Array del mazo central
+    Carta [] mazoCentral = new Carta [cartasDelCentro];
+    Personaje [] mazoPersonajes;
     //Metodo para crear cartas
-    public Mazos(){
+    public Mazos(int numJugadores){
+        jugadores = numJugadores;
+        //Array del mazo de personajes
+        mazoPersonajes = new Personaje[jugadores];
         Personaje capitan;
         Personaje ayudante1;
         Personaje ayudante2;
@@ -21,12 +25,10 @@ public class Mazos{
         Personaje asesino2;
         Personaje asesino3;
         Personaje espia;
-        Carta carta;
         this.mazoCentral [0] = new Carta("Shot",4, "Pierde una vida","Rombos");
         this.mazoCentral [1] = new Carta("Kit Médico",8, "Gana una vida","Corazones");
         this.mazoCentral [2] = new Carta("Fallaste",4, "Esquivas un shot","Picas");
         this.mazoCentral [3] = new Carta("Mirilla",1, "La distancia de visión se aumenta en 1","Picas");
-        Personaje personaje;
         capitan = new Personaje("Capitán","Ha de sobrevivir toda la partida y encontrar a los asesinos y al espia");
         ayudante1 = new Personaje("Ayudante","Ha ayudar al capitan a encontrar a los asesinos y al espia");
         ayudante2 = new Personaje("Ayudante","Ha ayudar al capitan a encontrar a los asesinos y al espia");
@@ -34,11 +36,12 @@ public class Mazos{
         asesino2 = new Personaje("Asesino","Ha de matar al capitan");
         asesino3 = new Personaje("Asesino","Ha de matar al capitan");
         espia = new Personaje("Espia","Ha de quedarse solo con el capitán y matarlo");
-        mazoPersonajes [0] = capitan;
-        mazoPersonajes [1] = ayudante1;
-        mazoPersonajes [2] = asesino1;
-        mazoPersonajes [3] = espia;
-        if(jugadores == 5){
+        if(jugadores == 4){
+            mazoPersonajes [0] = capitan;
+            mazoPersonajes [1] = ayudante1;
+            mazoPersonajes [2] = asesino1;
+            mazoPersonajes [3] = espia;
+        }else if(jugadores == 5){
             mazoPersonajes [0] = capitan;
             mazoPersonajes [1] = ayudante1;
             mazoPersonajes [2] = asesino1;
@@ -62,8 +65,7 @@ public class Mazos{
         }
     }
     //Metodo para repartir los personajes a los jugadores
-    public void repartirPersonajes(int numJugadores){
-        jugadores = numJugadores;
+    public void repartirPersonajes(){
         Personaje [] repartoPersonajes = new Personaje[jugadores];
         barajarMazoPersonaje();
         repartoPersonajes = mazoPersonajes;
@@ -89,8 +91,8 @@ public class Mazos{
     //Metodo para barajar las cartas de centro
     public void barajarMazoCentro(){
         for (int i = 0; i<= 100; i++){
-            int num1 = getNumAleatorio(0, 3);
-            int num2 = getNumAleatorio(0, 3);
+            int num1 = getNumAleatorio(0, cartasDelCentro-1);
+            int num2 = getNumAleatorio(0, cartasDelCentro-1);
             Carta carta1 = mazoCentral[num1];
             Carta carta2 = mazoCentral[num2];
             mazoCentral[num2] = carta1;

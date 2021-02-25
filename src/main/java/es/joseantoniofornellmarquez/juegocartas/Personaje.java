@@ -12,8 +12,8 @@ package es.joseantoniofornellmarquez.juegocartas;
 public class Personaje {
     String nombre;
     String rol;
+    
     public Personaje(String nombre, String rol){
-        
         this.nombre = nombre;
         this.rol = rol;
         
