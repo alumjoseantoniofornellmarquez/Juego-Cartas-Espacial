@@ -13,6 +13,8 @@ public class Mazos{
     //Array del mazo central
     Carta [] mazoCentral = new Carta [cartasDelCentro];
     Personaje [] mazoPersonajes;
+    //Array para repartir los personajes
+    Personaje [] repartoPersonajes;
     //Metodo para crear cartas
     public Mazos(int numJugadores){
         jugadores = numJugadores;
@@ -66,9 +68,35 @@ public class Mazos{
     }
     //Metodo para repartir los personajes a los jugadores
     public void repartirPersonajes(){
-        Personaje [] repartoPersonajes = new Personaje[jugadores];
+        repartoPersonajes = new Personaje[jugadores];
         barajarMazoPersonaje();
-        repartoPersonajes = mazoPersonajes;
+        if(jugadores == 4){
+            repartoPersonajes [0] = mazoPersonajes [0];
+            repartoPersonajes [1] = mazoPersonajes [1];
+            repartoPersonajes [2] = mazoPersonajes [2];
+            repartoPersonajes [3] = mazoPersonajes [3];
+        }else if(jugadores == 5){
+            repartoPersonajes [0] = mazoPersonajes [0];
+            repartoPersonajes [1] = mazoPersonajes [1];
+            repartoPersonajes [2] = mazoPersonajes [2];
+            repartoPersonajes [3] = mazoPersonajes [3];
+            repartoPersonajes [4] = mazoPersonajes [4];
+        }else if(jugadores == 6){
+            repartoPersonajes [0] = mazoPersonajes [0];
+            repartoPersonajes [1] = mazoPersonajes [1];
+            repartoPersonajes [2] = mazoPersonajes [2];
+            repartoPersonajes [3] = mazoPersonajes [3];
+            repartoPersonajes [4] = mazoPersonajes [4];
+            repartoPersonajes [5] = mazoPersonajes [5];
+        }else if(jugadores == 7){
+            repartoPersonajes [0] = mazoPersonajes [0];
+            repartoPersonajes [1] = mazoPersonajes [1];
+            repartoPersonajes [2] = mazoPersonajes [2];
+            repartoPersonajes [3] = mazoPersonajes [3];
+            repartoPersonajes [4] = mazoPersonajes [4];
+            repartoPersonajes [5] = mazoPersonajes [5];
+            repartoPersonajes [6] = mazoPersonajes [6];
+        }
     }
     //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
     public void cogerCarta(){
@@ -97,13 +125,6 @@ public class Mazos{
             Carta carta2 = mazoCentral[num2];
             mazoCentral[num2] = carta1;
             mazoCentral[num1] = carta2;
-        }
-    }
-    public void cogerCartaPersonajes(){
-        for (int i = 0; i < mazoPersonajes.length; i++){
-            Personaje perso = mazoPersonajes[jugadores-1];
-            //perso.mostrarCartaPersonaje();
-            //System.out.println("Carta " + i + perso);
         }
     }
     //Metodo para generar numeros aleatorios
