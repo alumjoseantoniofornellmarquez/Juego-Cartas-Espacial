@@ -23,6 +23,7 @@ BorderPane tablero;
         //mazo.cogerCarta();
         //mazo.cogerCartaPersonajes();
         mazo.repartirPersonajes();
+        mazo.repartirCartasCentro();
         VistaDelJugador visionJugador = new VistaDelJugador(mazo);
         tablero.setBottom(visionJugador);
     }

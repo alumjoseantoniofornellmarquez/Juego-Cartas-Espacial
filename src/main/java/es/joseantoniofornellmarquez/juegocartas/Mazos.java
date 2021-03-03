@@ -15,6 +15,8 @@ public class Mazos{
     Personaje [] mazoPersonajes;
     //Array para repartir los personajes
     Personaje [] repartoPersonajes;
+    //Array para repartir las cartas del centro
+    Carta [] [] cartasQueTieneElJugador;
     //Metodo para crear cartas
     public Mazos(int numJugadores){
         jugadores = numJugadores;
@@ -96,6 +98,17 @@ public class Mazos{
             repartoPersonajes [4] = mazoPersonajes [4];
             repartoPersonajes [5] = mazoPersonajes [5];
             repartoPersonajes [6] = mazoPersonajes [6];
+        }
+    }
+    //Metodo para repartir cartas del centro
+    public void repartirCartasCentro(){
+        cartasQueTieneElJugador = new Carta [10][jugadores];
+        barajarMazoCentro();
+        if(jugadores == 4){
+            cartasQueTieneElJugador [0][0]= mazoCentral [0];
+            cartasQueTieneElJugador [1][0]= mazoCentral [1];
+            cartasQueTieneElJugador [2][0]= mazoCentral [2];
+            cartasQueTieneElJugador [3][0]= mazoCentral [3];
         }
     }
     //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo

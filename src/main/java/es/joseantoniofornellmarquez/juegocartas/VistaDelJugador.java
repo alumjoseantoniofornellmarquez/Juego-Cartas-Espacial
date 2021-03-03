@@ -31,10 +31,10 @@ public class VistaDelJugador extends StackPane{
         Label jugador6;
         Label jugador7;
         if(mazos.jugadores == 4){
-            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " ");
-            jugador2 = new Label(mazos.repartoPersonajes[1].nombre + " " + mazos.repartoPersonajes[1].rol + " ");
-            jugador3 = new Label(mazos.repartoPersonajes[2].nombre + " " + mazos.repartoPersonajes[2].rol + " ");
-            jugador4 = new Label(mazos.repartoPersonajes[3].nombre + " " + mazos.repartoPersonajes[3].rol + " ");
+            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + 
+            mazos.repartoPersonajes[0].rol + " " + mazos.cartasQueTieneElJugador[0][0].nombre + " " + 
+            mazos.cartasQueTieneElJugador[0][0].accion + " " + mazos.cartasQueTieneElJugador[0][0].palo + " " + 
+            mazos.cartasQueTieneElJugador[0][0].numero );
             this.gridCartasJugador1.add(jugador1, 5, 0);
             //this.gridCartasJugador2.add(jugador2, 5, 10);
             //this.gridCartasJugador3.add(jugador3, 5, 20);
@@ -79,8 +79,8 @@ public class VistaDelJugador extends StackPane{
             //this.gridCartasJugador1.add(jugador6, 5, 50);
             //this.gridCartasJugador1.add(jugador7, 5, 60);
         }
-    this.gridCartasJugador1.setMaxWidth(30*9);
-    this.gridCartasJugador1.setMaxHeight(30*mazos.jugadores);
+    this.gridCartasJugador1.setMaxWidth(300*9);
+    this.gridCartasJugador1.setMaxHeight(300*mazos.jugadores);
     mostrarVistaJugador();
     }
     public void mostrarVistaJugador(){
