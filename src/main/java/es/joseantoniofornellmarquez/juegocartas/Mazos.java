@@ -105,10 +105,30 @@ public class Mazos{
         cartasQueTieneElJugador = new Carta [10][jugadores];
         barajarMazoCentro();
         if(jugadores == 4){
+            //Reparto para el jugador 1
             cartasQueTieneElJugador [0][0]= mazoCentral [0];
             cartasQueTieneElJugador [1][0]= mazoCentral [1];
             cartasQueTieneElJugador [2][0]= mazoCentral [2];
             cartasQueTieneElJugador [3][0]= mazoCentral [3];
+            //cartasQueTieneElJugador [4][0]= mazoCentral [4];
+            //Reparto para el jugador 2
+            //cartasQueTieneElJugador [5][1]= mazoCentral [5];
+            //cartasQueTieneElJugador [6][1]= mazoCentral [6];
+            //cartasQueTieneElJugador [7][1]= mazoCentral [7];
+            //cartasQueTieneElJugador [8][1]= mazoCentral [8];
+            //cartasQueTieneElJugador [9][1]= mazoCentral [9];
+            //Reparto para el jugador 3
+            //cartasQueTieneElJugador [10][2]= mazoCentral [10];
+            //cartasQueTieneElJugador [11][2]= mazoCentral [11];
+            //cartasQueTieneElJugador [12][2]= mazoCentral [12];
+            //cartasQueTieneElJugador [13][2]= mazoCentral [13];
+            //cartasQueTieneElJugador [14][2]= mazoCentral [14];
+            //Reparto para el jugador 4
+            //cartasQueTieneElJugador [15][3]= mazoCentral [15];
+            //cartasQueTieneElJugador [16][3]= mazoCentral [16];
+            //cartasQueTieneElJugador [17][3]= mazoCentral [17];
+            //cartasQueTieneElJugador [18][3]= mazoCentral [18];
+            //cartasQueTieneElJugador [19][3]= mazoCentral [19];
         }
     }
     //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo

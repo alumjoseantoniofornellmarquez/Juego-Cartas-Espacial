@@ -23,73 +23,56 @@ public class VistaDelJugador extends StackPane{
     HBox hboxCartaPersonajeJugador;
     public VistaDelJugador(Mazos mazos){
         this.gridCartasJugador1.setStyle("-fx-grid-lines-visible: true");
-        Label jugador1;
-        Label jugador2;
-        Label jugador3;
-        Label jugador4;
-        Label jugador5;
-        Label jugador6;
-        Label jugador7;
+        Label jugador;
+        Label carta1;
+        Label carta2;
+        Label carta3;
+        Label carta4;
         if(mazos.jugadores == 4){
-            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + 
-            mazos.repartoPersonajes[0].rol + " " + mazos.cartasQueTieneElJugador[0][0].nombre + " " + 
+            jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + 
+            mazos.repartoPersonajes[0].rol + " " );
+            this.gridCartasJugador1.add(jugador, 5, 0);
+            carta1 = new Label(mazos.cartasQueTieneElJugador[0][0].nombre + " " + 
             mazos.cartasQueTieneElJugador[0][0].accion + " " + mazos.cartasQueTieneElJugador[0][0].palo + " " + 
-            mazos.cartasQueTieneElJugador[0][0].numero );
-            this.gridCartasJugador1.add(jugador1, 5, 0);
-            //this.gridCartasJugador2.add(jugador2, 5, 10);
-            //this.gridCartasJugador3.add(jugador3, 5, 20);
-            //this.gridCartasJugador4.add(jugador4, 5, 30);
+            mazos.cartasQueTieneElJugador[0][0].numero);
+            this.gridCartasJugador1.add(carta1, 10, 0);
+            carta2 = new Label(mazos.cartasQueTieneElJugador[1][0].nombre + " " + 
+            mazos.cartasQueTieneElJugador[1][0].accion + " " + mazos.cartasQueTieneElJugador[1][0].palo + " " + 
+            mazos.cartasQueTieneElJugador[1][0].numero);
+            this.gridCartasJugador1.add(carta2, 15, 0);
+            carta3 = new Label(mazos.cartasQueTieneElJugador[2][0].nombre + " " + 
+            mazos.cartasQueTieneElJugador[2][0].accion + " " + mazos.cartasQueTieneElJugador[2][0].palo + " " + 
+            mazos.cartasQueTieneElJugador[2][0].numero);
+            this.gridCartasJugador1.add(carta3, 20, 0);
+            carta4 = new Label(mazos.cartasQueTieneElJugador[0][0].nombre + " " + 
+            mazos.cartasQueTieneElJugador[3][0].accion + " " + mazos.cartasQueTieneElJugador[3][0].palo + " " + 
+            mazos.cartasQueTieneElJugador[3][0].numero);
+            this.gridCartasJugador1.add(carta4, 30, 0);
         }else if(mazos.jugadores == 5){
-            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
-            jugador2 = new Label(mazos.repartoPersonajes[1].nombre + " " + mazos.repartoPersonajes[1].rol + " ");
-            jugador3 = new Label(mazos.repartoPersonajes[2].nombre + " " + mazos.repartoPersonajes[2].rol + " ");
-            jugador4 = new Label(mazos.repartoPersonajes[3].nombre + " " + mazos.repartoPersonajes[3].rol + " ");
-            jugador5 = new Label(mazos.repartoPersonajes[4].nombre + " " + mazos.repartoPersonajes[4].rol + " ");
-            this.gridCartasJugador1.add(jugador1, 5, 0);
-            //this.gridCartasJugador2.add(jugador2, 5, 10);
-            //this.gridCartasJugador3.add(jugador3, 5, 20);
-            //this.gridCartasJugador4.add(jugador4, 5, 30);
-            //this.gridCartasJugador4.add(jugador5, 5, 40);
+            jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
+            this.gridCartasJugador1.add(jugador, 5, 0);
         }else if(mazos.jugadores == 6){
-            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
-            jugador2 = new Label(mazos.repartoPersonajes[1].nombre + " " + mazos.repartoPersonajes[1].rol + " ");
-            jugador3 = new Label(mazos.repartoPersonajes[2].nombre + " " + mazos.repartoPersonajes[2].rol + " ");
-            jugador4 = new Label(mazos.repartoPersonajes[3].nombre + " " + mazos.repartoPersonajes[3].rol + " ");
-            jugador5 = new Label(mazos.repartoPersonajes[4].nombre + " " + mazos.repartoPersonajes[4].rol + " ");
-            jugador6 = new Label(mazos.repartoPersonajes[5].nombre + " " + mazos.repartoPersonajes[5].rol + " ");
-            this.gridCartasJugador1.add(jugador1, 5, 0);
-            //this.gridCartasJugador1.add(jugador2, 5, 10);
-            //this.gridCartasJugador1.add(jugador3, 5, 20);
-            //this.gridCartasJugador1.add(jugador4, 5, 30);
-            //this.gridCartasJugador1.add(jugador5, 5, 40);
-            //this.gridCartasJugador1.add(jugador6, 5, 50);
+            jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
+            this.gridCartasJugador1.add(jugador, 5, 0);
+
         }else if(mazos.jugadores == 7){
-            jugador1 = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
-            jugador2 = new Label(mazos.repartoPersonajes[1].nombre + " " + mazos.repartoPersonajes[1].rol + " ");
-            jugador3 = new Label(mazos.repartoPersonajes[2].nombre + " " + mazos.repartoPersonajes[2].rol + " ");
-            jugador4 = new Label(mazos.repartoPersonajes[3].nombre + " " + mazos.repartoPersonajes[3].rol + " ");
-            jugador5 = new Label(mazos.repartoPersonajes[4].nombre + " " + mazos.repartoPersonajes[4].rol + " ");
-            jugador6 = new Label(mazos.repartoPersonajes[5].nombre + " " + mazos.repartoPersonajes[5].rol + " ");
-            jugador7 = new Label(mazos.repartoPersonajes[6].nombre + " " + mazos.repartoPersonajes[6].rol + " ");
-            this.gridCartasJugador1.add(jugador1, 5, 0);
-            //this.gridCartasJugador1.add(jugador2, 5, 10);
-            //this.gridCartasJugador1.add(jugador3, 5, 20);
-            //this.gridCartasJugador1.add(jugador4, 5, 30);
-            //this.gridCartasJugador1.add(jugador5, 5, 40);
-            //this.gridCartasJugador1.add(jugador6, 5, 50);
-            //this.gridCartasJugador1.add(jugador7, 5, 60);
+            jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
+            this.gridCartasJugador1.add(jugador, 5, 0);
+
         }
-    this.gridCartasJugador1.setMaxWidth(300*9);
-    this.gridCartasJugador1.setMaxHeight(300*mazos.jugadores);
+    this.gridCartasJugador1.setMaxWidth(300*300);
+    this.gridCartasJugador1.setMaxHeight(300*300);
     mostrarVistaJugador();
     }
     public void mostrarVistaJugador(){
         hboxCartaPersonajeJugador = new HBox();
-        hboxCartaPersonajeJugador.setMinWidth(60);
+        hboxCartaPersonajeJugador.setMaxWidth(300*300);
+        hboxCartaPersonajeJugador.setMaxHeight(300*300);
+        hboxCartaPersonajeJugador.setMinWidth(50);
+        hboxCartaPersonajeJugador.setMinHeight(50);
         hboxCartaPersonajeJugador.setAlignment(Pos.BOTTOM_CENTER);
         hboxCartaPersonajeJugador.setSpacing(150);
         hboxCartaPersonajeJugador.getChildren().add(gridCartasJugador1);
         this.getChildren().add(hboxCartaPersonajeJugador);
     }
-    
 }
