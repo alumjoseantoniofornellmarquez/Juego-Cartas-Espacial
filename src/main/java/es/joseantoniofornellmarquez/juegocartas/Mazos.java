@@ -118,96 +118,40 @@ public class Mazos{
         asesino2 = new Personaje("Asesino","Ha de matar al capitan");
         asesino3 = new Personaje("Asesino","Ha de matar al capitan");
         espia = new Personaje("Espia","Ha de quedarse solo con el capitán y matarlo");
-        if(jugadores == 4){
-            mazoPersonajes [0] = capitan;
-            mazoPersonajes [1] = asesino2;
-            mazoPersonajes [2] = asesino1;
-            mazoPersonajes [3] = espia;
-        }else if(jugadores == 5){
-            mazoPersonajes [0] = capitan;
-            mazoPersonajes [1] = ayudante1;
-            mazoPersonajes [2] = asesino1;
-            mazoPersonajes [3] = espia;
-            mazoPersonajes [4] = asesino2;
-        }else if (jugadores == 6){
-            mazoPersonajes [0] = capitan;
-            mazoPersonajes [1] = ayudante1;
-            mazoPersonajes [2] = asesino1;
-            mazoPersonajes [3] = espia;
-            mazoPersonajes [4] = asesino2;
+        mazoPersonajes [0] = capitan;
+        mazoPersonajes [1] = asesino1;
+        mazoPersonajes [2] = asesino2;
+        mazoPersonajes [3] = espia;
+        if(jugadores >= 5){
+           mazoPersonajes [4] = ayudante1;
+        }
+        if (jugadores >= 6){
             mazoPersonajes [5] = asesino3;
-        }else if (jugadores == 7){
-            mazoPersonajes [0] = capitan;
-            mazoPersonajes [1] = ayudante1;
-            mazoPersonajes [2] = asesino1;
-            mazoPersonajes [3] = espia;
-            mazoPersonajes [4] = ayudante2;
-            mazoPersonajes [5] = asesino2;
-            mazoPersonajes [6] = asesino3;
+        }
+        if (jugadores >= 7){
+            mazoPersonajes [6] = ayudante2;
         }
     }
     //Metodo para repartir los personajes a los jugadores
     public void repartirPersonajes(){
         repartoPersonajes = new Personaje[jugadores];
         barajarMazoPersonaje();
-        if(jugadores == 4){
-            repartoPersonajes [0] = mazoPersonajes [0];
-            repartoPersonajes [1] = mazoPersonajes [1];
-            repartoPersonajes [2] = mazoPersonajes [2];
-            repartoPersonajes [3] = mazoPersonajes [3];
-        }else if(jugadores == 5){
-            repartoPersonajes [0] = mazoPersonajes [0];
-            repartoPersonajes [1] = mazoPersonajes [1];
-            repartoPersonajes [2] = mazoPersonajes [2];
-            repartoPersonajes [3] = mazoPersonajes [3];
-            repartoPersonajes [4] = mazoPersonajes [4];
-        }else if(jugadores == 6){
-            repartoPersonajes [0] = mazoPersonajes [0];
-            repartoPersonajes [1] = mazoPersonajes [1];
-            repartoPersonajes [2] = mazoPersonajes [2];
-            repartoPersonajes [3] = mazoPersonajes [3];
-            repartoPersonajes [4] = mazoPersonajes [4];
-            repartoPersonajes [5] = mazoPersonajes [5];
-        }else if(jugadores == 7){
-            repartoPersonajes [0] = mazoPersonajes [0];
-            repartoPersonajes [1] = mazoPersonajes [1];
-            repartoPersonajes [2] = mazoPersonajes [2];
-            repartoPersonajes [3] = mazoPersonajes [3];
-            repartoPersonajes [4] = mazoPersonajes [4];
-            repartoPersonajes [5] = mazoPersonajes [5];
-            repartoPersonajes [6] = mazoPersonajes [6];
+        for (int i= 0; i <= jugadores-1; i++){
+            repartoPersonajes [i] = mazoPersonajes [i];
         }
     }
     //Metodo para repartir cartas del centro
     public void repartirCartasCentro(){
-        cartasQueTieneElJugador = new Carta [20][jugadores];
+        cartasQueTieneElJugador = new Carta [10][jugadores];
         barajarMazoCentro();
-        if(jugadores == 4){
-            //Reparto para el jugador 1
-            cartasQueTieneElJugador [0][0]= mazoCentral [0];
-            cartasQueTieneElJugador [1][0]= mazoCentral [1];
-            cartasQueTieneElJugador [2][0]= mazoCentral [2];
-            cartasQueTieneElJugador [3][0]= mazoCentral [3];
-            cartasQueTieneElJugador [4][0]= mazoCentral [4];
-            //Reparto para el jugador 2
-            cartasQueTieneElJugador [5][1]= mazoCentral [5];
-            cartasQueTieneElJugador [6][1]= mazoCentral [6];
-            cartasQueTieneElJugador [7][1]= mazoCentral [7];
-            cartasQueTieneElJugador [8][1]= mazoCentral [8];
-            cartasQueTieneElJugador [9][1]= mazoCentral [9];
-            //Reparto para el jugador 3
-            cartasQueTieneElJugador [10][2]= mazoCentral [10];
-            cartasQueTieneElJugador [11][2]= mazoCentral [11];
-            cartasQueTieneElJugador [12][2]= mazoCentral [12];
-            cartasQueTieneElJugador [13][2]= mazoCentral [13];
-            cartasQueTieneElJugador [14][2]= mazoCentral [14];
-            //Reparto para el jugador 4
-            cartasQueTieneElJugador [15][3]= mazoCentral [15];
-            cartasQueTieneElJugador [16][3]= mazoCentral [16];
-            cartasQueTieneElJugador [17][3]= mazoCentral [17];
-            cartasQueTieneElJugador [18][3]= mazoCentral [18];
-            cartasQueTieneElJugador [19][3]= mazoCentral [19];
+        int contador = 0;
+        for (int i= 0; i <= jugadores -1; i++){
+            for (int e= 0; e <= 4 ; e++){
+                cartasQueTieneElJugador [e][i] = mazoCentral [contador];
+                contador++;
+            } 
         }
+        System.out.println(contador);
     }
     //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
     public void cogerCarta(){

@@ -28,6 +28,7 @@ public class VistaDelJugador extends StackPane{
         Label carta2;
         Label carta3;
         Label carta4;
+        Label carta5;
         if(mazos.jugadores == 4){
             jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + 
             mazos.repartoPersonajes[0].rol + " " );
@@ -44,10 +45,14 @@ public class VistaDelJugador extends StackPane{
             mazos.cartasQueTieneElJugador[2][0].accion + " " + mazos.cartasQueTieneElJugador[2][0].palo + " " + 
             mazos.cartasQueTieneElJugador[2][0].numero);
             this.gridCartasJugador1.add(carta3, 20, 0);
-            carta4 = new Label(mazos.cartasQueTieneElJugador[0][0].nombre + " " + 
+            carta4 = new Label(mazos.cartasQueTieneElJugador[3][0].nombre + " " + 
             mazos.cartasQueTieneElJugador[3][0].accion + " " + mazos.cartasQueTieneElJugador[3][0].palo + " " + 
             mazos.cartasQueTieneElJugador[3][0].numero);
             this.gridCartasJugador1.add(carta4, 30, 0);
+            carta5 = new Label(mazos.cartasQueTieneElJugador[4][0].nombre + " " + 
+            mazos.cartasQueTieneElJugador[4][0].accion + " " + mazos.cartasQueTieneElJugador[4][0].palo + " " + 
+            mazos.cartasQueTieneElJugador[4][0].numero);
+            this.gridCartasJugador1.add(carta5, 35, 0);
         }else if(mazos.jugadores == 5){
             jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + mazos.repartoPersonajes[0].rol + " " );
             this.gridCartasJugador1.add(jugador, 5, 0);
@@ -72,6 +77,7 @@ public class VistaDelJugador extends StackPane{
         hboxCartaPersonajeJugador.setMinHeight(50);
         hboxCartaPersonajeJugador.setAlignment(Pos.BOTTOM_CENTER);
         hboxCartaPersonajeJugador.setSpacing(150);
+        hboxCartaPersonajeJugador.setStyle("-fx-border-color: green");
         hboxCartaPersonajeJugador.getChildren().add(gridCartasJugador1);
         this.getChildren().add(hboxCartaPersonajeJugador);
     }
