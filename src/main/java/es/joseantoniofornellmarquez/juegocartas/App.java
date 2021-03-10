@@ -1,8 +1,13 @@
 package es.joseantoniofornellmarquez.juegocartas;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -17,6 +22,7 @@ BorderPane tablero;
         var pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
+        tablero.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         Mazos mazo = new Mazos(4);
         mazo.barajarMazoPersonaje();
         mazo.barajarMazoCentro();

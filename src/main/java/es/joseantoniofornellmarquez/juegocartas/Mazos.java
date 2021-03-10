@@ -3,21 +3,26 @@ package es.joseantoniofornellmarquez.juegocartas;
 
 import java.util.Random;
 
-
+/**
+ * Clase Mazos donde se realiza la lógica del juego
+ * @author 1DAW09
+ */
 public class Mazos{
-    int cartaAleatoria;
     //Variables jugadores
     int jugadores;
     //Variable para la cantidad de cartas del mazo central
-    int cartasDelCentro = 80;
+    final int  CARTASDELCENTRO = 80;
     //Array del mazo central
-    Carta [] mazoCentral = new Carta [cartasDelCentro];
+    Carta [] mazoCentral = new Carta [CARTASDELCENTRO];
     Personaje [] mazoPersonajes;
     //Array para repartir los personajes
     Personaje [] repartoPersonajes;
     //Array para repartir las cartas del centro
     Carta [] [] cartasQueTieneElJugador;
-    //Metodo para crear cartas
+    /**
+     * Metodo para crear cartas
+     * @param numJugadores Número de jugadores que van a jugar
+     */
     public Mazos(int numJugadores){
         jugadores = numJugadores;
         //Array del mazo de personajes
@@ -132,7 +137,9 @@ public class Mazos{
             mazoPersonajes [6] = ayudante2;
         }
     }
-    //Metodo para repartir los personajes a los jugadores
+    /**
+     * Metodo para repartir los personajes a los jugadores
+     */
     public void repartirPersonajes(){
         repartoPersonajes = new Personaje[jugadores];
         barajarMazoPersonaje();
@@ -140,7 +147,9 @@ public class Mazos{
             repartoPersonajes [i] = mazoPersonajes [i];
         }
     }
-    //Metodo para repartir cartas del centro
+    /**
+     * Metodo para repartir cartas del centro
+     */
     public void repartirCartasCentro(){
         cartasQueTieneElJugador = new Carta [10][jugadores];
         barajarMazoCentro();
@@ -153,14 +162,18 @@ public class Mazos{
         }
         System.out.println(contador);
     }
-    //Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
+    /**
+     * Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
+     */
     public void cogerCarta(){
         for (int i = 0; i < mazoCentral.length; i++){
             Carta carta = mazoCentral[i];
             carta.mostrarCarta();
         }
     }
-    //Metodo para barajar las cartas de los personajes
+    /**
+     * Metodo para barajar las cartas de los personajes
+     */
     public void barajarMazoPersonaje(){
         for (int i = 0; i<= 100; i++){
             int num1 = getNumAleatorio(0, jugadores-1);
@@ -171,18 +184,25 @@ public class Mazos{
             mazoPersonajes[num1] = carta2;
         }
     }
-    //Metodo para barajar las cartas de centro
+    /**
+     * Metodo para barajar las cartas de centro
+     */
     public void barajarMazoCentro(){
         for (int i = 0; i<= 200; i++){
-            int num1 = getNumAleatorio(0, cartasDelCentro-1);
-            int num2 = getNumAleatorio(0, cartasDelCentro-1);
+            int num1 = getNumAleatorio(0, CARTASDELCENTRO-1);
+            int num2 = getNumAleatorio(0, CARTASDELCENTRO-1);
             Carta carta1 = mazoCentral[num1];
             Carta carta2 = mazoCentral[num2];
             mazoCentral[num2] = carta1;
             mazoCentral[num1] = carta2;
         }
     }
-    //Metodo para generar numeros aleatorios
+    /**
+     * Metodo para generar números aleatorios
+     * @param min número minimo
+     * @param max número maximo
+     * @return devuelve el número
+     */
     public int getNumAleatorio(int min, int max){
         Random random = new Random();
         int num = random.nextInt(max-min+1) + min;

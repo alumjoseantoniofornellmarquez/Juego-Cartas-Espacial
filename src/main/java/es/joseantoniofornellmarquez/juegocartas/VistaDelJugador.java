@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 /**
- *
+ * Clase para la parte visual del jugador y el juego
  * @author 1DAW09
  */
 public class VistaDelJugador extends StackPane{
@@ -77,7 +77,7 @@ public class VistaDelJugador extends StackPane{
         hboxCartaPersonajeJugador.setMinHeight(50);
         hboxCartaPersonajeJugador.setAlignment(Pos.BOTTOM_CENTER);
         hboxCartaPersonajeJugador.setSpacing(150);
-        hboxCartaPersonajeJugador.setStyle("-fx-border-color: green");
+        hboxCartaPersonajeJugador.setStyle("-fx-border-color: white");
         hboxCartaPersonajeJugador.getChildren().add(gridCartasJugador1);
         this.getChildren().add(hboxCartaPersonajeJugador);
     }
