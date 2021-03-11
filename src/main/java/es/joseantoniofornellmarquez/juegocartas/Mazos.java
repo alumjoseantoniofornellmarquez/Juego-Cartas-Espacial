@@ -19,6 +19,18 @@ public class Mazos{
     Personaje [] repartoPersonajes;
     //Array para repartir las cartas del centro
     Carta [] [] cartasQueTieneElJugador;
+    //Variable que cuenta las cartas que se han dado
+    int contadorCartas = 0;
+    //Personajes del juego
+    Personaje capitan;
+    Personaje ayudante1;
+    Personaje ayudante2;
+    Personaje asesino1;
+    Personaje asesino2;
+    Personaje asesino3;
+    Personaje espia;
+    //Contador de turno
+    int turnoActual = 0;
     /**
      * Metodo para crear cartas
      * @param numJugadores Número de jugadores que van a jugar
@@ -27,13 +39,7 @@ public class Mazos{
         jugadores = numJugadores;
         //Array del mazo de personajes
         mazoPersonajes = new Personaje[jugadores];
-        Personaje capitan;
-        Personaje ayudante1;
-        Personaje ayudante2;
-        Personaje asesino1;
-        Personaje asesino2;
-        Personaje asesino3;
-        Personaje espia;
+        
         //Cartas del mazo central
         this.mazoCentral [0] = new Carta("Shot",12, "Pierde una vida","Rombos");
         this.mazoCentral [1] = new Carta("Shot",10, "Pierde una vida","Rombos");
@@ -153,23 +159,22 @@ public class Mazos{
     public void repartirCartasCentro(){
         cartasQueTieneElJugador = new Carta [10][jugadores];
         barajarMazoCentro();
-        int contador = 0;
         for (int i= 0; i <= jugadores -1; i++){
             for (int e= 0; e <= 4 ; e++){
-                cartasQueTieneElJugador [e][i] = mazoCentral [contador];
-                contador++;
+                cartasQueTieneElJugador [e][i] = mazoCentral [contadorCartas];
+                contadorCartas++;
             } 
         }
-        System.out.println(contador);
+        System.out.println(contadorCartas);
     }
     /**
      * Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
      */
     public void cogerCarta(){
-        for (int i = 0; i < mazoCentral.length; i++){
-            Carta carta = mazoCentral[i];
-            carta.mostrarCarta();
-        }
+        cartasQueTieneElJugador[capitan.vidas+1][0] = mazoCentral[contadorCartas];
+        contadorCartas++;
+        cartasQueTieneElJugador[capitan.vidas+2][0] = mazoCentral[contadorCartas];
+        contadorCartas++;
     }
     /**
      * Metodo para barajar las cartas de los personajes

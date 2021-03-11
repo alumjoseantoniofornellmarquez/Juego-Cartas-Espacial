@@ -21,6 +21,10 @@ public class VistaDelJugador extends StackPane{
     //GridPane gridCartasJugador3 = new GridPane();
     //GridPane gridCartasJugador4 = new GridPane();
     HBox hboxCartaPersonajeJugador;
+    /**
+     * Metodo de la la clase VistaDelJugador que va a contener que ve el jugador
+     * @param mazos espera un objeto de la clase Mazos
+     */
     public VistaDelJugador(Mazos mazos){
         this.gridCartasJugador1.setStyle("-fx-grid-lines-visible: true");
         Label jugador;
@@ -69,6 +73,9 @@ public class VistaDelJugador extends StackPane{
     this.gridCartasJugador1.setMaxHeight(300*300);
     mostrarVistaJugador();
     }
+    /**
+     * Metodo que va a mostrar que ve el jugador en pantalla
+     */
     public void mostrarVistaJugador(){
         hboxCartaPersonajeJugador = new HBox();
         hboxCartaPersonajeJugador.setMaxWidth(300*300);
