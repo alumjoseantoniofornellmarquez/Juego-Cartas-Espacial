@@ -7,6 +7,8 @@ package es.joseantoniofornellmarquez.juegocartas;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -21,11 +23,13 @@ public class VistaDelJugador extends StackPane{
     //GridPane gridCartasJugador3 = new GridPane();
     //GridPane gridCartasJugador4 = new GridPane();
     HBox hboxCartaPersonajeJugador;
+    Mazos mazos;
     /**
      * Metodo de la la clase VistaDelJugador que va a contener que ve el jugador
      * @param mazos espera un objeto de la clase Mazos
      */
     public VistaDelJugador(Mazos mazos){
+        this.mazos = mazos;
         this.gridCartasJugador1.setStyle("-fx-grid-lines-visible: true");
         Label jugador;
         Label carta1;
@@ -87,5 +91,7 @@ public class VistaDelJugador extends StackPane{
         hboxCartaPersonajeJugador.setStyle("-fx-border-color: white");
         hboxCartaPersonajeJugador.getChildren().add(gridCartasJugador1);
         this.getChildren().add(hboxCartaPersonajeJugador);
+        VistaDeLasCartas vista1 = new VistaDeLasCartas(mazos);
+        hboxCartaPersonajeJugador.getChildren().add(vista1);
     }
 }
