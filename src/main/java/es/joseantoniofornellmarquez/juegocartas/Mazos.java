@@ -170,11 +170,13 @@ public class Mazos{
     /**
      * Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
      */
-    public void cogerCarta(){
-        cartasQueTieneElJugador[capitan.vidas+1][0] = mazoCentral[contadorCartas];
-        contadorCartas++;
-        cartasQueTieneElJugador[capitan.vidas+2][0] = mazoCentral[contadorCartas];
-        contadorCartas++;
+    public void cogerCarta(int numJugador){
+        int cartasQueRobar = 1;
+        for (int i= 0; i <= cartasQueRobar -1; i++){
+            cartasQueTieneElJugador[mazoPersonajes[numJugador].vidas+cartasQueRobar][numJugador] = mazoCentral[contadorCartas];
+            contadorCartas++;
+        }
+        cartasQueRobar++;
     }
     /**
      * Metodo para barajar las cartas de los personajes
