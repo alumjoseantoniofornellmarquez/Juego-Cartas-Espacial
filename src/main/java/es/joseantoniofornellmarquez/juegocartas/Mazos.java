@@ -39,7 +39,6 @@ public class Mazos{
         jugadores = numJugadores;
         //Array del mazo de personajes
         mazoPersonajes = new Personaje[jugadores];
-        
         //Cartas del mazo central
         this.mazoCentral [0] = new Carta("Shot",12, "Pierde una vida","Rombos");
         this.mazoCentral [1] = new Carta("Shot",10, "Pierde una vida","Rombos");
@@ -170,13 +169,22 @@ public class Mazos{
     /**
      * Metodo para coger y mostrar una carta aleatoria del mazo central y mostrarlo
      */
+    //Variables para saber las cartas que tiene que robar cada jugador
+    int cartasQueRobar = 2;
+    int numJugador;
     public void cogerCarta(int numJugador){
-        int cartasQueRobar = 1;
+        this.numJugador = numJugador;
         for (int i= 0; i <= cartasQueRobar -1; i++){
-            cartasQueTieneElJugador[mazoPersonajes[numJugador].vidas+cartasQueRobar][numJugador] = mazoCentral[contadorCartas];
+            cartasQueTieneElJugador[mazoPersonajes[numJugador].vidas+i][numJugador] = mazoCentral[contadorCartas];
             contadorCartas++;
+            System.out.println(contadorCartas);
         }
-        cartasQueRobar++;
+        System.out.println(cartasQueRobar);
+    }
+    public void jugarCarta(){
+        Carta [] mazoDescartes = new Carta [CARTASDELCENTRO];
+        mazoDescartes [0] = cartasQueTieneElJugador [0][0];
+        
     }
     /**
      * Metodo para barajar las cartas de los personajes
