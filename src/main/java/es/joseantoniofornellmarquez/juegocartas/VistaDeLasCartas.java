@@ -6,10 +6,10 @@
 package es.joseantoniofornellmarquez.juegocartas;
 
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.Group;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -21,10 +21,27 @@ public class VistaDeLasCartas extends VBox{
     
     public VistaDeLasCartas(Mazos mazos){
 
-        Image cartas = new Image(getClass().getResourceAsStream("/images/Carta.png"));
-        ImageView mostrarCartas = new ImageView();
-        this.getChildren().add(mostrarCartas);
-        mostrarCartas.setImage(cartas);
+        //Image cartas = new Image(getClass().getResourceAsStream("/images/Carta.png"));
+        //ImageView mostrarCartas = new ImageView();
+        //this.getChildren().add(mostrarCartas);
+        //mostrarCartas.setImage(cartas);
+        Group cartas = new Group();
+        Rectangle superior = new Rectangle(100,60);
+        Rectangle medio = new Rectangle(100,40);
+        Rectangle inferior = new Rectangle(100,100);
+        medio.setY(60);
+        inferior.setY(100);
+        superior.setFill(Color.BLUE);
+        superior.setStroke(Color.RED);
+        medio.setFill(Color.BLUE);
+        medio.setStroke(Color.RED);
+        inferior.setFill(Color.BLUE);
+        inferior.setStroke(Color.RED);
+        superior.setStyle("-fx-border-radius: 50px");
+        cartas.getChildren().add(superior);
+        cartas.getChildren().add(medio);
+        cartas.getChildren().add(inferior);
+        this.getChildren().add(cartas);
         this.setMinWidth(91);
         this.setMinHeight(128);
         this.setAlignment(Pos.CENTER);

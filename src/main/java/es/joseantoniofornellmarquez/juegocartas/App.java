@@ -16,21 +16,20 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 BorderPane tablero;
+Scene pantalla;
     @Override
     public void start(Stage stage) {
         tablero = new BorderPane();
-        var pantalla = new Scene(tablero, 800, 600);
+        pantalla = new Scene(tablero, 800, 600);
         stage.setScene(pantalla);
         stage.show();
         tablero.setBackground(new Background(new BackgroundFill(Color.DARKGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         Mazos mazo = new Mazos(4);
         mazo.barajarMazoPersonaje();
         mazo.barajarMazoCentro();
-        //mazo.cogerCarta();
-        //mazo.cogerCartaPersonajes();
         mazo.repartirPersonajes();
         mazo.repartirCartasCentro();
-        VistaDelJugador visionJugador = new VistaDelJugador(mazo);
+        VistaDelJugador visionJugador = new VistaDelJugador(mazo, tablero);
         tablero.setBottom(visionJugador);
     }
 

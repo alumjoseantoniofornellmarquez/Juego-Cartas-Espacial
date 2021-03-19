@@ -2,6 +2,7 @@
 package es.joseantoniofornellmarquez.juegocartas;
 
 import java.util.Random;
+import javafx.scene.input.MouseEvent;
 
 /**
  * Clase Mazos donde se realiza la lógica del juego
@@ -12,6 +13,8 @@ public class Mazos{
     int jugadores;
     //Variable para la cantidad de cartas del mazo central
     final int  CARTASDELCENTRO = 80;
+    //Array del mazo de descartes
+    Carta [] mazoDescartes = new Carta [CARTASDELCENTRO];
     //Array del mazo central
     Carta [] mazoCentral = new Carta [CARTASDELCENTRO];
     Personaje [] mazoPersonajes;
@@ -181,11 +184,6 @@ public class Mazos{
         }
         System.out.println(cartasQueRobar);
     }
-    public void jugarCarta(){
-        Carta [] mazoDescartes = new Carta [CARTASDELCENTRO];
-        mazoDescartes [0] = cartasQueTieneElJugador [0][0];
-        
-    }
     /**
      * Metodo para barajar las cartas de los personajes
      */
@@ -210,6 +208,19 @@ public class Mazos{
             Carta carta2 = mazoCentral[num2];
             mazoCentral[num2] = carta1;
             mazoCentral[num1] = carta2;
+        }
+    }
+    /**
+     * Metodo que baraja el mazo de los descartes
+     */
+    public void barajarMazoDescartes(){
+        for (int i = 0; i<= 200; i++){
+            int num1 = getNumAleatorio(0, CARTASDELCENTRO-1);
+            int num2 = getNumAleatorio(0, CARTASDELCENTRO-1);
+            Carta carta1 = mazoDescartes[num1];
+            Carta carta2 = mazoDescartes[num2];
+            mazoDescartes[num2] = carta1;
+            mazoDescartes[num1] = carta2;
         }
     }
     /**
