@@ -2,7 +2,6 @@
 package es.joseantoniofornellmarquez.juegocartas;
 
 import java.util.Random;
-import javafx.scene.input.MouseEvent;
 
 /**
  * Clase Mazos donde se realiza la lógica del juego

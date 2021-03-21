@@ -14,25 +14,29 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
 
 /**
  * Clase para la parte visual del jugador y el juego
  * @author 1DAW09
  */
 public class VistaDelJugador extends StackPane{
+    // Declaracacion de los Hbox que va a llevar la parte visual del jugador
     HBox paneCartasJugador1 = new HBox();
-    //GridPane gridCartasJugador2 = new GridPane();
-    //GridPane gridCartasJugador3 = new GridPane();
-    //GridPane gridCartasJugador4 = new GridPane();
     HBox hboxCartaPersonajeJugador;
+    //Variable mazos de la clase mazos
     Mazos mazos;
+    //Variable para el label que va a decir que personaje ha tocado al jugador
     Label jugador;
-    Label [] carta1;
+    //Array de la clase Vista de las cartas
+    VistaDeLasCartas [] cartas;
+    //Constantes con el tamaño de las cartas y sus hbox
     final int TAM_X = 100;
-    final int TAM_Y = 100;
+    final int TAM_Y = 180;
+    //Declaracion del boton para robar
     Button robarCarta;
+    //Variable del tablero
     BorderPane tablero;
+    //Cartas que el jugador va a tener inicialmente
     int cartasDelJugador= 5;
     /**
      * Metodo de la la clase VistaDelJugador que va a contener que ve el jugador
@@ -43,18 +47,14 @@ public class VistaDelJugador extends StackPane{
         this.tablero = tablero;
         this.mazos = mazos;
         this.paneCartasJugador1.setStyle("-fx-grid-lines-visible: true");
-        carta1 = new Label [mazos.CARTASDELCENTRO];
-        jugador = new Label(mazos.repartoPersonajes[0].nombre + " " + 
+        cartas = new VistaDeLasCartas [mazos.CARTASDELCENTRO];
+        jugador = new Label(mazos.repartoPersonajes[0].nombre + "\n " + 
         mazos.repartoPersonajes[0].rol + " " );
         jugador.setMaxSize(TAM_X, TAM_Y);
         jugador.setAlignment(Pos.CENTER_LEFT);
         for (int i = 0; i < cartasDelJugador ; i++){
-            carta1 [i] = new Label(mazos.cartasQueTieneElJugador[i][0].nombre + " " + 
-            mazos.cartasQueTieneElJugador[i][0].accion + " " + mazos.cartasQueTieneElJugador[i][0].palo + " " + 
-            mazos.cartasQueTieneElJugador[i][0].numero);
-            carta1 [i].setMinSize(TAM_X, TAM_Y);
-            VistaDeLasCartas vista1 = new VistaDeLasCartas(mazos.cartasQueTieneElJugador[i][0]);
-            this.paneCartasJugador1.getChildren().add(vista1);
+            cartas [i] = new VistaDeLasCartas(mazos.cartasQueTieneElJugador[i][0]);
+            this.paneCartasJugador1.getChildren().add(cartas[i]);
         }
     this.paneCartasJugador1.setAlignment(Pos.CENTER_LEFT);
     this.paneCartasJugador1.setMaxWidth(TAM_X);
@@ -85,16 +85,12 @@ public class VistaDelJugador extends StackPane{
             @Override
             public void handle(ActionEvent e){
                 mazos.cogerCarta(0);
-                carta1 [5] = new Label(mazos.cartasQueTieneElJugador[5][0].nombre + " " + 
-                mazos.cartasQueTieneElJugador[5][0].accion + " " + mazos.cartasQueTieneElJugador[5][0].palo + " " + 
-                mazos.cartasQueTieneElJugador[5][0].numero);
-                carta1 [5].setMinSize(TAM_X, TAM_Y);
-                paneCartasJugador1.getChildren().add(carta1 [5]);
-                carta1 [6] = new Label(mazos.cartasQueTieneElJugador[6][0].nombre + " " + 
-                mazos.cartasQueTieneElJugador[6][0].accion + " " + mazos.cartasQueTieneElJugador[6][0].palo + " " + 
-                mazos.cartasQueTieneElJugador[6][0].numero);
-                carta1 [6].setMinSize(TAM_X, TAM_Y);
-                paneCartasJugador1.getChildren().add(carta1 [6]);
+                cartas [5] = new VistaDeLasCartas(mazos.cartasQueTieneElJugador[5][0]);
+                cartas [5].setMinSize(TAM_X, TAM_Y);
+                paneCartasJugador1.getChildren().add(cartas [5]);
+                cartas [6] = new VistaDeLasCartas(mazos.cartasQueTieneElJugador[6][0]);
+                cartas [6].setMinSize(TAM_X, TAM_Y);
+                paneCartasJugador1.getChildren().add(cartas [6]);
             }
         });
         
@@ -110,10 +106,7 @@ public class VistaDelJugador extends StackPane{
         System.out.println("Col: " + colClic );
         mazos.mazoDescartes [0] = mazos.cartasQueTieneElJugador [colClic][0];
         mazos.cartasQueTieneElJugador [colClic][0] = null;
-        this.paneCartasJugador1.getChildren().remove(carta1[colClic]);
-        int cuantasCartas = mazos.cartasQueTieneElJugador.length;
-        /**for (i = colClic; i < cuantasCartas; i){
-        }*/
+        this.paneCartasJugador1.getChildren().remove(cartas[colClic]);
         });
     }
 }
